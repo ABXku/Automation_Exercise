@@ -17,4 +17,4 @@
 Click [here](https://automationexercise.com/test_cases) for more test cases in detail.
 
 ## Problem To Be Fixed
-        Even though all the test cases passed, there is something that should be changed. The problem I'm struggling with is that the Google Vignette ads always come up during the test, and that makes my test case fail. Up until now, I still couldn't find the solution to this problem. If you guys know how to fix this, you can answer it here.
+        You'll see that some test cases failed, that is because the Google Vignette ads always comes up during the test, and that makes my test case fail. Up until now, I still couldn't find the solution to this problem. If you guys know how to fix this, you can answer it [here](https://stackoverflow.com/questions/77351388/disable-google-vignette-ads-on-chrome).
