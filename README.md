@@ -1,7 +1,7 @@
 # Automation_Exercise
 
 ## About
-        [Automation Exercise](https://automationexercise.com) is a website where we can practice web automation. They also provide us with test case instructions so we can follow along. For this project, I'll use Robot Framework and Selenium as the main tools.
+        [Automation Exercise](https://automationexercise.com) is a website where all QA engineers can practice web automation and API testing. They also provide us with test case instructions so we can follow along. For this project, I'll focus on automation testing using Robot Framework and Selenium as the main tools.
 
 ## Test Cases
 - Test Case 1: Register User
@@ -17,4 +17,4 @@
 Click [here](https://automationexercise.com/test_cases) for more test cases in detail.
 
 ## Problem To Be Fixed
-        The problem I'm struggling with is that the Google Vignette ads always come up during the test, and that makes my test case fail. Up until now, I still couldn't find the solution to this problem. If you guys know how to fix this, you can answer it here.
+        Even though all the test cases passed, there is something that should be changed. The problem I'm struggling with is that the Google Vignette ads always come up during the test, and that makes my test case fail. Up until now, I still couldn't find the solution to this problem. If you guys know how to fix this, you can answer it here.
