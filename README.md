@@ -13,4 +13,8 @@
 - Test Case 7: Verify Test Cases Page
 - Test Case 8: Verify All Products and product detail page
 - Test Case 9: Search Product
+
 Click [here](https://automationexercise.com/test_cases) for more test cases in detail.
+
+## Problem To Be Fixed
+        The problem I'm struggling with is that the Google Vignette ads always come up during the test, and that makes my test case fail. Up until now, I still couldn't find the solution to this problem. If you guys know how to fix this, you can answer it here.
