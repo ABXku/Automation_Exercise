@@ -23,14 +23,13 @@ Click Login Button
 Click Signup Button
     Click Element               xpath=${SIGN_UP_BUTTON}
 
-Go to Home Page
-    Go To                       https://automationexercise.com
-    Element Should Be Visible   xpath=${HOME_PAGE_ELEMENT}
-
 Go to Products Page
     Click Element               xpath=${PRODUCTS_LINK}
-    Reload Page
     Element Should Be Visible    xpath=${PRODUCTS_LISTS_ELEMENT}
+
+Skip Google Ads
+    Execute Javascript          const elements = document.getElementsByClassName('adsbygoogle adsbygoogle-noablate'); while (elements.length > 0) elements[0].remove()
+
 
 *** Variables ***
 #Element
@@ -106,6 +105,7 @@ ${OFFERS_CHECKBOX}              optin
 ${EXISTED_EMAIL}                existed_user@fake.com
 ${EXISTED_PASSWORD}             existedpassword
 
+#Product details elements
 ${name_element}             //div[@class='product-information']/h2
 ${category_element}         //div[@class='product-information']/p[contains(text(), 'Category:')]
 ${price_element}            //div[@class='product-information']//span[contains(text(), 'Rs.')]
@@ -114,9 +114,7 @@ ${condition}                //div[@class='product-information']//b[contains(text
 ${brand}                    //div[@class='product-information']//b[contains(text(), 'Brand:')]
 
 
-
 *** Test cases ***
-
 Test Case 1: Register User
     ${username}                 FakerLibrary.User name
     ${email}                    FakerLibrary.Email
@@ -133,7 +131,7 @@ Test Case 1: Register User
     ${zipcode}                  FakerLibrary.Zipcode
     ${mobile}                   FakerLibrary.Phone Number
 
-    Open Home Page 
+    Open Home Page
     Open Sign up Page
     Input Text                  xpath=${SIGNUP_NAME_FORM}          ${username}  
     Input Text                  xpath=${SIGNUP_EMAIL_FORM}         ${email}
@@ -157,7 +155,8 @@ Test Case 1: Register User
     Click Element               xpath=${CREATE_ACCOUNT_BUTTON}
     Element Should Be Visible   xpath=${ACCOUNT_CREATED_ELEMENT} 
     Click Element               xpath=${CONTINUE_BUTTON}
-    Go to Home Page
+    Skip Google Ads
+    Click Element               xpath=${CONTINUE_BUTTON}
     Element Should Be Visible   xpath=${USER_IS_LOGGED_IN_ELEMENT}
     Click Element               xpath=${DELETE_ACCOUNT_BUTTON}
     Element Should Be Visible   xpath=${ACCOUNT_DELETED_ELEMENT}
@@ -177,18 +176,15 @@ Test Case 3: Login User with incorrect email and password
     Input Text                  xpath=${LOGIN_PASSWORD_FORM}       fakepassword
     Click Login Button
     Element Should Be Visible   xpath=${EMAIL_PASSWORD_INCORRECT_ELEMENT}
-
 Test Case 4: Logout User
     Open Home Page
     Open Login Page
     Input Text                  xpath=${LOGIN_EMAIL_FORM}          ${EXISTED_EMAIL}
     Input Text                  xpath=${LOGIN_PASSWORD_FORM}       ${EXISTED_PASSWORD}
     Click Login Button
-    Go to Home Page
     Element Should Be Visible   xpath=${USER_IS_LOGGED_IN_ELEMENT}
     Click Element               xpath=${LOGOUT_BUTTON}
     Element Should Be Visible   xpath=${LOGIN_ELEMENT}
-
 Test Case 5: Register User with existing email
     ${username}                 FakerLibrary.User name
 
@@ -218,7 +214,9 @@ Test Case 6: Contact Us Form
 
 Test Case 7: Verify Test Cases Page
     Open Home Page
-    Go To                       https://automationexercise.com/test_cases
+    Click Element               xpath=${TEST_CASES_LINK}
+    Skip Google Ads
+    Click Element               xpath=${TEST_CASES_LINK}
     Element Should Be Visible   xpath=${TEST_CASES_ELEMENT}
 
 Test Case 8: Verify All Products and product detail page
@@ -235,7 +233,7 @@ Test Case 8: Verify All Products and product detail page
 Test Case 9: Search Product
     Open Home Page
     Click Element               xpath=${PRODUCTS_LINK}
-    Execute Javascript          const elements = document.getElementsByClassName('adsbygoogle adsbygoogle-noablate'); while (elements.length > 0) elements[0].remove()
+    Skip Google Ads
     Click Element               xpath=${PRODUCTS_LINK}
     Input Text                  id=${SEARCH_PRODUCT_FORM}   jeans
     Element Should Be Visible   xpath=//div[@class='col-sm-4']//p[contains(text(), 'Jeans')]
